@@ -33,6 +33,9 @@
             color: white;
             overflow-x: hidden;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
@@ -238,6 +241,74 @@
             text-shadow: var(--neon-glow-sm);
         }
 
+        /* Footer Section */
+        .footer {
+            background: linear-gradient(to top, #0a0a16, #050510);
+            padding: 40px 0 20px;
+            margin-top: auto;
+            text-align: center;
+            border-top: 1px solid rgba(77, 127, 255, 0.3);
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(77, 127, 255, 0.6);
+            object-fit: cover;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(77, 127, 255, 0.8);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            text-shadow: var(--neon-glow-sm);
+        }
+
+        .profile-title {
+            color: var(--neon-blue-light);
+            margin-bottom: 15px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--neon-blue-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .github-icon {
+            margin-right: 8px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         /* 3D Background */
         #three-container {
             position: fixed;
@@ -336,6 +407,11 @@
             .consultation-card {
                 margin: 20px 0 0;
             }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
 </head>
@@ -415,6 +491,23 @@
         </div>
     </section>
 
+    <!-- Footer con Perfil de GitHub -->
+    <footer class="footer">
+        <div class="container">
+            <div class="profile-container">
+                <img src="https://github.com/choochshoot.png" alt="Dani Espinosa" class="profile-image">
+                <h3 class="profile-name">Dani Espinosa</h3>
+                <p class="profile-title">Desarrollador Full Stack</p>
+                <a href="https://github.com/choochshoot" class="github-link" target="_blank">
+                    <i class="fab fa-github github-icon"></i> /choochshoot
+                </a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 NEUROFIT - Soluciones Digitales. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/5618371510" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -448,9 +541,9 @@
             particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
             
             const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.05,
-                vertexColors: true,
-                transparent: true,
+                size: 0.05;
+                vertexColors: true;
+                transparent: true;
                 opacity: 0.8
             });
             
